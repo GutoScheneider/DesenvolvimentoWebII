@@ -16,5 +16,6 @@ $head->addElement($title);
 $body = new Body("body");
 
 $html = new Html("pt-br", $head, $body);
+echo "hello world";
 
 echo $html;
