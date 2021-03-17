@@ -12,6 +12,7 @@ class Ul {
     public function addUl($sAtributo) {
         $this->aLista[] = $sAtributo;
     }
+    
 
     public function __toString() {
         $sUl = '<ul class="'.$this->sClass.'">';
