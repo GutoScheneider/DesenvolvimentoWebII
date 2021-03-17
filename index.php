@@ -29,13 +29,15 @@ $barra->addElement($conteudoBarra);
 $areaprincipal = new Div("row");
 $menu = new Div("col-sm-2");
 //$menu->addElement($texto);
+$con = new Conexao();
+var_dump($con);
 
 //itens do menu
 $menuConteudo = new Ul("list-group");
-$menuConteudo->addElement(new li("list-group-item", "Pessoas"));
-$menuConteudo->addElement(new li("list-group-item", "Produtos"));
-$menuConteudo->addElement(new li("list-group-item", "Contas"));
-$menuConteudo->addElement(new li("list-group-item", "Créditos"));
+$menuConteudo->addUl(new li("list-group-item", "Pessoas"));
+$menuConteudo->addUl(new li("list-group-item", "Produtos"));
+$menuConteudo->addUl(new li("list-group-item", "Contas"));
+$menuConteudo->addUl(new li("list-group-item", "Créditos"));
 $menu->addElement($menuConteudo);
 
 $miolo = new Div("col-sm-10 bg-danger");
@@ -47,7 +49,7 @@ $areaprincipal->addElement($miolo);
 $container->addElement($barra);
 $container->addElement($areaprincipal);
 
-$body->addElement($container);
+$body->addElementBody($container);
 
 $html = new Html("pt-br", $head, $body);
 
