@@ -7,7 +7,7 @@ $metaName = new Meta(null, "viewport", null, "width=device-width, initial-scale=
 
 /*Login*/
 $title = new Title('Login');
-$conn = new Connection();
+$conn = new Conexao();
 /*Login - Fim*/
 
 /*Head*/
@@ -91,9 +91,9 @@ $div_formRow_signin->addElement($div_formGroup_signin);
 
 /*Form*/
 $form    = new Form('POST', 'authentication.php');
-$form->addForm($div_formRow_email);
-$form->addForm($div_formRow_password);
-$form->addForm($div_formRow_signin);
+$form->addElementForms($div_formRow_email);
+$form->addElementForms($div_formRow_password);
+$form->addElementForms($div_formRow_signin);
 
 /*Form - Fim*/
 
@@ -103,5 +103,5 @@ $form->addForm($div_formRow_signin);
 
 
 
+
 echo $html;
-?>

@@ -2,27 +2,33 @@
 
 class Form {
 
-    private $aLista = array();
-    private $sAction;
-    private $sMethod;
-    private $sClass;
+    private $lista = array();
+    private $class;
+    private $method;
+    private $action;
 
-    public function __construct($sAction, $sMethod, $sClass) {
-        $this->sAction = $sAction;
-        $this->sMethod = $sMethod;
-        $this->sClass = $sClass;
+    public function __construct($method, $action, $class = '')
+    {
+        $this->method = $method;
+        $this->action = $action;
+        $this->class  = $class;
     }
 
-    public function addForm($sAtributo) {
-        $this->aLista[] = $sAtributo;
+    public function addElementForms($array)
+    {
+        $this->lista[] = $array;
     }
 
-    public function __toString() {
-        $sForm = '<form action="'.$this->sAction.'" method="'.$this->sMethod.'" class="'.$this->sClass.'">';
-        foreach ($this->aLista as $sItemLista) {
-            $sForm .= $sItemLista;
+    public function __toString()
+    {
+        $form = '<form class="'.$this->class.'" method="'.$this->method.'" action="'.$this->action.'">';
+
+        foreach ($this->lista as $valor) {
+            $form .= $valor;
         }
-        $sForm .= '</form>';
-        return $sForm;
+
+        $form .= "</form>";
+
+        return $form;
     }
 }

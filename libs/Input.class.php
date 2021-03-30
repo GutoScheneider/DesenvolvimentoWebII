@@ -1,19 +1,25 @@
 <?php
-class Input {
+class Input
+{
+    private $class;
+    private $attributes;
 
-    private $sType;
-    private $sClass;
-    private $sId;
-    private $sPlaceholder;
-    
-    public function __construct($sType, $sClass, $sId, $sPlaceholder) {
-        $this->sType = $sType;
-        $this->sClass = $sClass;
-        $this->sId = $sId;
-        $this->sPlaceholder = $sPlaceholder;
+    public function __construct($class = '', $attributes = [])
+    {
+    $this->class      = $class;
+    $this->attributes = $attributes;
     }
 
-    public function __toString() {
-        return '<input type="'.$this->sType.'" class="'.$this->sClass.'" id="'.$this->sId.'" placeholder="'.$this->sPlaceholder.'">';
+    public function __toString()
+    {
+    $input = '<input class="'.$this->class.'" ';
+
+    foreach ($this->attributes as $attribute => $val) {
+    $input .= $attribute . '="' . $val . '" ';
     }
- }
+
+    $input .= ">";
+
+    return $input;
+    }
+}
