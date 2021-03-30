@@ -27,6 +27,6 @@ class Conexao{
         public function getSelect($sql){
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            return $stm->fetchALL(PDO::FETCH_NUM);
+            return $stmt->fetchALL(PDO::FETCH_NUM);
         }
     }
